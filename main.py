@@ -1,6 +1,7 @@
 import math
 f1 = input("Enter the fundamental frequency: ")
 f1 = float(f1)
+mode = input("Enter 0 for for drawing dissonant curve.\n1 for calculating dissonant between notes.")
 f1SPL = 60
 f1b = f1*2
 f1bSPL = 50
@@ -606,8 +607,19 @@ if Bf2 > 0:
 else:
     l1g = 0
 
-secondfrequnecy = input("Enter the fundamental frequency of second note(s): ")
-secondfrequnecy = secondfrequnecy.split()
+if mode == 1:
+    secondfrequnecy = input("Enter the fundamental frequency of second note(s): ")
+    secondfrequnecy = secondfrequnecy.split()
+
+else:
+    secondfrequnecy = []
+    b = 0
+    while b < 240:
+        notes = f1*2**(b/120)
+        secondfrequnecy.append(notes)
+        b += 1
+    pass
+
 result = []
 for i in range(len(secondfrequnecy)):
     secondfrequnecy[i] = float(secondfrequnecy[i])
@@ -1471,12 +1483,7 @@ for i in range(len(secondfrequnecy)):
         sum = (df1gdf2l1gl2+df1gdf2bl1gl2b+df1gdf2cl1gl2c+df1gdf2dl1gl2d+df1gdf2el1gl2e+df1gdf2fl1gl2f+df1gdf2gl1gl2g+df1fdf2gl1fl2g+df1edf2gl1dl2g+df1ddf2gl1dl2g+df1cdf2gl1cl2g+df1bdf2gl1bl2g+df1df2gl1l2g+df1fd2fl1fl2f+df1ed2fl1el2f+df1fd2fl1dl2f+df1fc2fl1cl2f+df1fb2fl1bl2f+df1ff2el1fl2e+df1ff2dl1fl2d+df1ff2cl1fl2c+df1ff2bl1fl2b+df1ff2l1fl2+
                df1f2l1l2+df1bf2l1bl2+df1cf2l1cl2+df1df2l1cl2+df1ef2l1cl2+df1f2bl1l2b+df1bf2bl1bl2b+df1cf2bl1cl2b+df1df2bl1dl2b+df1ef2bl1el2b+df1f2cl1l2c+df1bf2cl1bl2c+df1cf2cl1cl2c+df1df2cl1dl2c+df1ef2cl1el2c+df1f2dl1l2d+df1bf2dl1bl2d+df1cf2dl1cl2d+df1df2dl1dl2d+df1ef2dl1el2d+df1f2el1l2e+df1bf2el1bl2e+df1cf2el1cl2e+df1df2el1dl2e+df1ef2el1dl2e)
         print(sum)
-
-
-
         result.append(sum)
-
-
     pass
     i += 0
 pass
