@@ -1480,4 +1480,5 @@ for i in range(len(secondfrequnecy)):
     pass
     i += 0
 pass
+
 print ("Total dissonant:",math.fsum(result))
