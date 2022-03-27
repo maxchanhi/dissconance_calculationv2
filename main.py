@@ -2,6 +2,18 @@ import math
 f1 = input("Enter the fundamental frequency: ")
 f1 = float(f1)
 mode = input("Enter 0 for for drawing dissonant curve.\n1 for calculating dissonant between notes.")
+mode = int(mode)
+if mode == 1:
+    secondfrequnecy = input("Enter the fundamental frequency of second note(s): ")
+    secondfrequnecy = secondfrequnecy.split()
+elif mode == 0:
+    secondfrequnecy = []
+    b = 0
+    while b < 240:
+        notes = f1*2**(b/120)
+        secondfrequnecy.append(notes)
+        b += 1
+    pass
 f1SPL = 60
 f1b = f1*2
 f1bSPL = 50
@@ -16,79 +28,80 @@ f1fSPL = 30
 f1g = f1*7
 f1gSPL = 30
 
-if f1 < 60:
+freq = f1
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif f1 > 60 and f1 < 80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif f1>80 and f1 < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif f1>125 and f1 < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif f1>200 and f1 <300:
+elif freq > 200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif f1 > 300 and f1 < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif f1 > 500 and f1 < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif f1 > 800 and f1 < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif f1 > 1200 and f1 < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif f1 > 1500 and f1 < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif f1 > 1800 and f1 < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif f1 > 2200 and f1 < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif f1 > 2900 and f1 < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif f1 > 3500 and f1 < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif f1 > 4500 and f1 < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif f1 > 5500 and f1 < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif f1 > 7500 and f1 < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif f1 > 9000 and f1 < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
-elif f1 > 11000:
+elif freq > 11000:
     af = 0.301
     Lu = -3.1
     Tf = 12.3
@@ -100,79 +113,80 @@ if Bf2 > 0:
 else:
     l1 = 0
 
-if f1b>30 and f1b<60:
+freq = f1b
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif f1b > 60 and f1b < 80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif f1b >80 and f1b < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif f1b >125 and f1b < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif f1b >200 and f1b <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif f1b > 300 and f1b < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif f1b > 500 and f1b < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif f1b > 800 and f1b < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif f1b > 1200 and f1b < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif f1b > 1500 and f1b < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif f1b > 1800 and f1b < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif f1b > 2200 and f1b < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif f1b > 2900 and f1b < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif f1b > 3500 and f1b < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif f1b > 4500 and f1b < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif f1b > 5500 and f1b < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif f1b > 7500 and f1b < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif f1b > 9000 and f1b < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
-elif f1b > 11000:
+elif freq > 11000:
     af = 0.301
     Lu = -3.1
     Tf = 12.3
@@ -184,79 +198,80 @@ if Bf2 > 0:
 else:
     l1b = 0
 
-if f1c>30 and f1c<60:
+freq = f1c
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif f1c > 60 and f1c < 80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif f1c >80 and f1c < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif f1c >125 and f1c < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif f1c >200 and f1c <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif f1c > 300 and f1c < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif f1c > 500 and f1c < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif f1c > 800 and f1c < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif f1c > 1200 and f1c < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif f1c > 1500 and f1c < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif f1c > 1800 and f1c < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif f1c > 2200 and f1c < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif f1c > 2900 and f1c < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif f1c > 3500 and f1c < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif f1c > 4500 and f1c < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif f1c > 5500 and f1c < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif f1c > 7500 and f1c < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif f1c > 9000 and f1c < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
-elif f1c > 11000:
+elif freq > 11000:
     af = 0.301
     Lu = -3.1
     Tf = 12.3
@@ -268,79 +283,80 @@ if Bf2 > 0:
 else:
     l1c = 0
 
-if f1d>30 and f1d<60:
+freq = f1d
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif f1d > 60 and f1d < 80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif f1d >80 and f1d < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif f1d >125 and f1d < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif f1d >200 and f1d <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif f1d > 300 and f1d < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif f1d > 500 and f1d < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif f1d > 800 and f1d < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif f1d > 1200 and f1d < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif f1d > 1500 and f1d < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif f1d > 1800 and f1d < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif f1d > 2200 and f1d < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif f1d > 2900 and f1d < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif f1d > 3500 and f1d < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif f1d > 4500 and f1d < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif f1d > 5500 and f1d < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif f1d > 7500 and f1d < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif f1d > 9000 and f1d < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
-elif f1d > 11000:
+elif freq > 11000:
     af = 0.301
     Lu = -3.1
     Tf = 12.3
@@ -353,75 +369,75 @@ else:
     l1d = 0
 
 freq = f1e
-if freq >30 and freq <60:
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif freq > 60 and freq <80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif freq >80 and freq < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif freq >125 and freq < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif freq >200 and freq <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif freq > 300 and freq < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif freq > 500 and freq < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif freq > 800 and freq < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif freq > 1200 and freq < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif freq > 1500 and freq < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif freq > 1800 and freq < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif freq > 2200 and freq < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif freq > 2900 and freq < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif freq > 3500 and freq < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif freq > 4500 and freq < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif freq > 5500 and freq < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif freq > 7500 and freq < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif freq > 9000 and freq < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
@@ -438,75 +454,75 @@ else:
     l1e = 0
 
 freq = f1f
-if freq >30 and freq <60:
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif freq > 60 and freq <80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif freq >80 and freq < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif freq >125 and freq < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif freq >200 and freq <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif freq > 300 and freq < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif freq > 500 and freq < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif freq > 800 and freq < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif freq > 1200 and freq < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif freq > 1500 and freq < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif freq > 1800 and freq < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif freq > 2200 and freq < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif freq > 2900 and freq < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif freq > 3500 and freq < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif freq > 4500 and freq < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif freq > 5500 and freq < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif freq > 7500 and freq < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif freq > 9000 and freq < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
@@ -523,75 +539,75 @@ else:
     l1f = 0
 
 freq = f1g
-if freq >30 and freq <60:
+if freq >30 and freq <=60:
     af = 0.432
     Lu = -15.9
     Tf = 44
-elif freq > 60 and freq <80:
+elif freq > 60 and freq <=80:
     af = 0.409
     Lu = -13
     Tf = 37.5
-elif freq >80 and freq < 125:
+elif freq >80 and freq <= 125:
     af = 0.349
     Lu = -6.2
     Tf = 22.1
-elif freq >125 and freq < 200:
+elif freq >125 and freq <= 200:
     af = 0.330
     Lu = -4.5
     Tf = 17.9
-elif freq >200 and freq <300:
+elif freq >200 and freq <=300:
     af = 0.301
     Lu = -2
     Tf = 11.4
-elif freq > 300 and freq < 500:
+elif freq > 300 and freq <= 500:
     af = 0.276
     Lu = -0.1
     Tf = 6.2
-elif freq > 500 and freq < 800:
+elif freq > 500 and freq <= 800:
     af = 0.259
     Lu = 0.3
     Tf = 3
-elif freq > 800 and freq < 1200:
+elif freq > 800 and freq <= 1200:
     af = 0.250
     Lu = 0
     Tf = 2.4
-elif freq > 1200 and freq < 1500:
+elif freq > 1200 and freq <= 1500:
     af = 0.246
     Lu = -2.7
     Tf = 3.5
-elif freq > 1500 and freq < 1800:
+elif freq > 1500 and freq <= 1800:
     af = 0.244
     Lu = -4.1
     Tf = 1.7
-elif freq > 1800 and freq < 2200:
+elif freq > 1800 and freq <= 2200:
     af = 0.243
     Lu = -1
     Tf = -1.3
-elif freq > 2200 and freq < 2900:
+elif freq > 2200 and freq <= 2900:
     af = 0.243
     Lu = 1.7
     Tf = -4.2
-elif freq > 2900 and freq < 3500:
+elif freq > 2900 and freq <= 3500:
     af = 0.243
     Lu = 2.5
     Tf = -6
-elif freq > 3500 and freq < 4500:
+elif freq > 3500 and freq <= 4500:
     af = 0.242
     Lu = 1.2
     Tf = -5.2
-elif freq > 4500 and freq < 5500:
+elif freq > 4500 and freq <= 5500:
     af = 0.242
     Lu = -2.1
     Tf = -1.5
-elif freq > 5500 and freq < 7500:
+elif freq > 5500 and freq <= 7500:
     af = 0.245
     Lu = -7.1
     Tf = 6
-elif freq > 7500 and freq < 9000:
+elif freq > 7500 and freq <= 9000:
     af = 0.245
     Lu = -11.2
     Tf = 12.6
-elif freq > 9000 and freq < 11000:
+elif freq > 9000 and freq <= 11000:
     af = 0.271
     Lu = -10.7
     Tf = 13.9
@@ -607,18 +623,6 @@ if Bf2 > 0:
 else:
     l1g = 0
 
-if mode == 1:
-    secondfrequnecy = input("Enter the fundamental frequency of second note(s): ")
-    secondfrequnecy = secondfrequnecy.split()
-
-else:
-    secondfrequnecy = []
-    b = 0
-    while b < 240:
-        notes = f1*2**(b/120)
-        secondfrequnecy.append(notes)
-        b += 1
-    pass
 
 result = []
 for i in range(len(secondfrequnecy)):
@@ -640,75 +644,75 @@ for i in range(len(secondfrequnecy)):
         f2fSPL = 30
         f2gSPL = 30
         freq = f2
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -725,75 +729,75 @@ for i in range(len(secondfrequnecy)):
             l2 = 0
 
         freq = f2b
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -810,75 +814,75 @@ for i in range(len(secondfrequnecy)):
             l2b = 0
 
         freq = f2c
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -895,75 +899,75 @@ for i in range(len(secondfrequnecy)):
             l2c = 0
 
         freq = f2d
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -980,75 +984,75 @@ for i in range(len(secondfrequnecy)):
             l2d = 0
 
         freq = f2e
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -1065,75 +1069,75 @@ for i in range(len(secondfrequnecy)):
             l2e = 0
 
         freq = f2f
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
@@ -1150,75 +1154,75 @@ for i in range(len(secondfrequnecy)):
             l2f = 0
 
         freq = f2g
-        if freq > 30 and freq < 60:
+        if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
             Tf = 44
-        elif freq > 60 and freq < 80:
+        elif freq > 60 and freq <= 80:
             af = 0.409
             Lu = -13
             Tf = 37.5
-        elif freq > 80 and freq < 125:
+        elif freq > 80 and freq <= 125:
             af = 0.349
             Lu = -6.2
             Tf = 22.1
-        elif freq > 125 and freq < 200:
+        elif freq > 125 and freq <= 200:
             af = 0.330
             Lu = -4.5
             Tf = 17.9
-        elif freq > 200 and freq < 300:
+        elif freq > 200 and freq <= 300:
             af = 0.301
             Lu = -2
             Tf = 11.4
-        elif freq > 300 and freq < 500:
+        elif freq > 300 and freq <= 500:
             af = 0.276
             Lu = -0.1
             Tf = 6.2
-        elif freq > 500 and freq < 800:
+        elif freq > 500 and freq <= 800:
             af = 0.259
             Lu = 0.3
             Tf = 3
-        elif freq > 800 and freq < 1200:
+        elif freq > 800 and freq <= 1200:
             af = 0.250
             Lu = 0
             Tf = 2.4
-        elif freq > 1200 and freq < 1500:
+        elif freq > 1200 and freq <= 1500:
             af = 0.246
             Lu = -2.7
             Tf = 3.5
-        elif freq > 1500 and freq < 1800:
+        elif freq > 1500 and freq <= 1800:
             af = 0.244
             Lu = -4.1
             Tf = 1.7
-        elif freq > 1800 and freq < 2200:
+        elif freq > 1800 and freq <= 2200:
             af = 0.243
             Lu = -1
             Tf = -1.3
-        elif freq > 2200 and freq < 2900:
+        elif freq > 2200 and freq <= 2900:
             af = 0.243
             Lu = 1.7
             Tf = -4.2
-        elif freq > 2900 and freq < 3500:
+        elif freq > 2900 and freq <= 3500:
             af = 0.243
             Lu = 2.5
             Tf = -6
-        elif freq > 3500 and freq < 4500:
+        elif freq > 3500 and freq <= 4500:
             af = 0.242
             Lu = 1.2
             Tf = -5.2
-        elif freq > 4500 and freq < 5500:
+        elif freq > 4500 and freq <= 5500:
             af = 0.242
             Lu = -2.1
             Tf = -1.5
-        elif freq > 5500 and freq < 7500:
+        elif freq > 5500 and freq <= 7500:
             af = 0.245
             Lu = -7.1
             Tf = 6
-        elif freq > 7500 and freq < 9000:
+        elif freq > 7500 and freq <= 9000:
             af = 0.245
             Lu = -11.2
             Tf = 12.6
-        elif freq > 9000 and freq < 11000:
+        elif freq > 9000 and freq <= 11000:
             af = 0.271
             Lu = -10.7
             Tf = 13.9
