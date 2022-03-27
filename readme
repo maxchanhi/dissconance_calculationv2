@@ -1,0 +1,17 @@
+This program automatically converts sound pressure level to loudness and calculates the dissonant level between notes with harmonics considered up to the 7th partials.
+First, you have to enter the fundamental frequency, the lower note you want to work with.
+It only accepts one frequency. There are two modes, enter 0 for drawing dissonant curve; enter 1 for calculating dissonant between two notes or even more.
+To calculate multiple notes (a chord), use a spacebar to separate individual frequencies.
+The default harmonic pattern is based on harmonic series (f,2f,3f,4f,5f,6f,7f) and sound pressure level in decibel (dBSPL) corresponds to harmonics 60, 50, 40, 40, 30, 30, 30 dBSPL respectively.
+You can customize the parameters in the code for inharmonic instruments like percussion, wind.
+The dissonant curve drawing is based on the resolution of  2^1/120 for two octaves, 120 steps in an octave, 240 steps in total, also changeable at lines 12 and 13.
+
+The conversion of dbSPL to loudness is based on the lookup table and formulas of  BS ISO 226:2003 and calculation of dissonant level according to Sethares (2010).
+This program compensates Sethares did not provide an accurate method of converting SPL to loudness in sone.
+The program also saves a lot of work from reading the lookup table while calculating.
+
+https://github.com/maxchanhi/dissconant_calculationv2.git
+
+Anon (2003) BS ISO 226:2003: Acoustics. Normal equal-loudness-level contours. British Standards Institute.
+
+Sethares, W. A. (2010) Tuning, timbre, spectrum, scale. 2nd ed. London: Springer.
