@@ -16,7 +16,6 @@ elif mode == 0:
     pass
 result = []
 for f2 in secondfrequnecy:
-    f1 = 440
     f1SPL = 60
     f1b = f1*2
     f1bSPL = 50
