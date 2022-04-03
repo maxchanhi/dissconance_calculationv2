@@ -309,4 +309,3 @@ for f2 in secondfrequnecy:
     result.append(summed)
     r = 0
 print("Total dissonant:",sum(result))
-
