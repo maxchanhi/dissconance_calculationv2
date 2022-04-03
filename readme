@@ -1,3 +1,4 @@
+main v2 is a more efficient code of main. V2 is recomended.
 To run to code, just copy and paste the code on an online python compiler, or download a python interpreter on your computer.
 This program automatically converts sound pressure level to loudness and calculates the dissonant level between notes with harmonics considered up to the 7th partials.
 First, you have to enter the fundamental frequency, the lower note you want to work with.
@@ -8,7 +9,7 @@ You can customize the parameters in the code for inharmonic instruments like per
 The dissonant curve drawing is based on the resolution of  2^1/120 for two octaves, 120 steps in an octave, 240 steps in total, also changeable at lines 12 and 13.
 
 The conversion of dbSPL to loudness is based on the lookup table and formulas of  BS ISO 226:2003 and calculation of dissonant level according to Sethares (2010).
-This program compensates Sethares did not provide an accurate method of converting SPL to loudness in sone.
+This program compensates Sethares(2010) did not provide an accurate method of converting SPL to loudness in sone.
 The program also saves a lot of work from reading the lookup table while calculating.
 
 https://github.com/maxchanhi/dissconant_calculationv2.git
