@@ -623,10 +623,10 @@ if Bf2 > 0:
 else:
     l1g = 0
 
-
+i = 0
 result = []
 for i in range(len(secondfrequnecy)):
-    secondfrequnecy[i] = float(secondfrequnecy[i])
+    #secondfrequnecy[i] = float(secondfrequnecy[i])
 
     for x in [secondfrequnecy[i]]:
         f2 = x
@@ -640,7 +640,7 @@ for i in range(len(secondfrequnecy)):
         f2bSPL = 50
         f2cSPL = 40
         f2dSPL = 40
-        f2eSPL = 35
+        f2eSPL = 30
         f2fSPL = 30
         f2gSPL = 30
         freq = f2
@@ -1489,7 +1489,7 @@ for i in range(len(secondfrequnecy)):
         print(sum)
         result.append(sum)
     pass
-    i += 0
+    i += 1
 pass
 
 print ("Total dissonant:",math.fsum(result))
