@@ -4,8 +4,9 @@ f1 = float(f1)
 mode = input("Enter 0 for for drawing dissonant curve.\n1 for calculating dissonant between notes.")
 mode = int(mode)
 if mode == 1:
-    secondfrequnecy = input("Enter the fundamental frequency of second note(s): ")
-    secondfrequnecy = secondfrequnecy.split()
+    f2cal = []
+    f2cal = input("Enter the fundamental frequency of second note(s): ")
+    secondfrequnecy = f2cal.split()
 elif mode == 0:
     secondfrequnecy = []
     b = 0
@@ -137,7 +138,9 @@ for f2 in secondfrequnecy:
     f2frequency = [f2,f2b,f2c,f2d,f2e,f2f,f2g]
     SPLf2row = [f2SPL, f2bSPL, f2cSPL, f2dSPL, f2eSPL, f2fSPL, f2gSPL]
     i = 0
-    for freq in f2frequency:
+    while i < 7:
+        freq = f2frequency[i]
+        freq = float(freq)
         if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
@@ -227,8 +230,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2result = []
     while r <= 6:
-        minf = min(f1row[r], f2frequency[0])
-        maxf = max(f1row[r], f2frequency[0])
+        minf = min(float(f1row[r]), float(f2frequency[0]))
+        maxf = max(float(f1row[r]), float(f2frequency[0]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2rowloudnessdiss = f2rowloudness[0] * f1rowloudness[r] * (
@@ -238,8 +241,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2bresult = []
     while r <= 6:
-        minf = min(f1row[r], f2frequency[1])
-        maxf = max(f1row[r], f2frequency[1])
+        minf = min(float(f1row[r]), float(f2frequency[1]))
+        maxf = max(float(f1row[r]), float(f2frequency[1]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2browloudnessdiss = f2rowloudness[1] * f1rowloudness[r] * (
@@ -250,8 +253,8 @@ for f2 in secondfrequnecy:
     f2cresult = []
     while r < 7:
         f1r = f1row[r]
-        minf = min(f1row[r], f2frequency[2])
-        maxf = max(f1row[r], f2frequency[2])
+        minf = min(float(f1row[r]), float(f2frequency[2]))
+        maxf = max(float(f1row[r]), float(f2frequency[2]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2crowloudnessdiss = f2rowloudness[2] * f1rowloudness[r] * (
@@ -261,8 +264,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2dresult = []
     while r < 7:
-        minf = min(f1row[r], f2frequency[3])
-        maxf = max(f1row[r], f2frequency[3])
+        minf = min(float(f1row[r]), float(f2frequency[3]))
+        maxf = max(float(f1row[r]), float(f2frequency[3]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2drowloudnessdiss = f2rowloudness[3] * f1rowloudness[r] * (
@@ -272,8 +275,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2eresult = []
     while r < 7:
-        minf = min(f1row[r], f2frequency[4])
-        maxf = max(f1row[r], f2frequency[4])
+        minf = min(float(f1row[r]), float(f2frequency[4]))
+        maxf = max(float(f1row[r]), float(f2frequency[4]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2erowloudnessdiss = f2rowloudness[4] * f1rowloudness[r] * (
@@ -283,8 +286,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2fresult = []
     while r < 7:
-        minf = min(f1row[r], f2frequency[5])
-        maxf = max(f1row[r], f2frequency[5])
+        minf = min(float(f1row[r]), float(f2frequency[5]))
+        maxf = max(float(f1row[r]), float(f2frequency[5]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2frowloudnessdiss = f2rowloudness[5] * f1rowloudness[r] * (
@@ -294,8 +297,8 @@ for f2 in secondfrequnecy:
     r = 0
     f2gresult = []
     while r < 7:
-        minf = min(f1row[r], f2frequency[6])
-        maxf = max(f1row[r], f2frequency[6])
+        minf = min(float(f1row[r]), float(f2frequency[6]))
+        maxf = max(float(f1row[r]), float(f2frequency[6]))
         s = 0.24 / (0.021 * minf + 19)
         fdiff = maxf - minf
         f2growloudnessdiss = f2rowloudness[6] * f1rowloudness[r] * (
