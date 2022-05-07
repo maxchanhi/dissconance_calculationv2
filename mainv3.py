@@ -1,40 +1,31 @@
 import math
-f1 = input("Enter the fundamental frequency: ")
-f1 = float(f1)
-mode = input("Enter 0 for for drawing dissonant curve.\n1 for calculating dissonant between notes.")
-mode = int(mode)
-if mode == 1:
-    f2cal = []
-    f2cal = input("Enter the fundamental frequency of second note(s): ")
-    secondfrequnecy = f2cal.split()
-elif mode == 0:
-    secondfrequnecy = []
-    b = 0
-    while b < 240:
-        notes = f1*2**(b/120)
-        secondfrequnecy.append(notes)
-        b += 1
-    pass
+f2cal = []
+f2cal = input("Enter the fundamental frequencies: ")
+f = f2cal.split()
+g = 0
 result = []
-for f2 in secondfrequnecy:
+while g < int(len(f)-1):
+    f1 = f[g]
     f1SPL = 70
-    f1b = f1*2.92920354
+    f1b = float(f1)*2
     f1bSPL = 69.2
-    f1c = f1*4.85840708
+    f1c = float(f1)*3
     f1cSPL = 66.7
-    f1d = f1*5.827433628
+    f1d = float(f1)*4
     f1dSPL = 57.4
-    f1e = f1*6.800884956
+    f1e = float(f1)*5
     f1eSPL = 58.6
-    f1f = f1*7.778761062
+    f1f = float(f1)*6
     f1fSPL = 46.1
-    f1g = f1*7
+    f1g = float(f1)*7
     f1gSPL = 0
     f1row = [f1,f1b,f1c,f1d,f1e,f1f,f1g]
     SPLrow = [f1SPL,f1bSPL,f1cSPL,f1dSPL,f1eSPL,f1fSPL,f1gSPL]
     i = 0
     f1rowloudness = []
-    for freq in f1row:
+    o = 0
+    while o < 7:
+        freq = float(f1row[o])
         if freq > 30 and freq <= 60:
             af = 0.432
             Lu = -15.9
@@ -121,12 +112,14 @@ for f2 in secondfrequnecy:
             lf1row = 0
         f1rowloudness.append(lf1row)
         i += 1
-    f2b = f2*2.92920354
-    f2c = f2*4.85840708
-    f2d = f2*5.827433628
-    f2e = f2*6.800884956
-    f2f = f2 * 7.778761062
-    f2g = f2 * 7
+        o += 1
+    f2 = f[g+1]
+    f2b = float(f2)*2
+    f2c = float(f2)*3
+    f2d = float(f2)*4
+    f2e = float(f2)*5
+    f2f = float(f2)* 6
+    f2g = float(f2)* 7
     f2SPL = 70
     f2bSPL = 69.2
     f2cSPL = 66.7
@@ -310,4 +303,5 @@ for f2 in secondfrequnecy:
     print(summed)
     result.append(summed)
     r = 0
+    g += 1
 print("Total dissonant:",sum(result))
