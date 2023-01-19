@@ -1,4 +1,6 @@
-main v2 is a more efficient code of main. V2 is recommended.
+For calculating the interval amoung notes mainV2 is recommended.
+For dissonance curve, use plomp-levelt-curves.ipynb
+
 To run to code, just copy and paste the code on an online python compiler, or download a python interpreter on your computer.
 This program automatically converts sound pressure level to loudness and calculates the dissonant level between notes with harmonics considered up to the 7th partials.
 First, you have to enter the fundamental frequency, the lower note you want to work with.
