@@ -1,5 +1,4 @@
-For calculating the interval amoung notes mainV2 is recommended.
-For dissonance curve, use plomp-levelt-curves.ipynb
+The user_interface_plomp-levelt-curves.ipynb is best to use with unlimited partials.
 
 To run to code, just copy and paste the code on an online python compiler, or download a python interpreter on your computer.
 This program automatically converts sound pressure level to loudness and calculates the dissonant level between notes with harmonics considered up to the 7th partials.
